@@ -3,6 +3,14 @@
     $dsn = 'mysql:host=localhost;dbname=php_pdo';
     $usuario = 'root';
     $senha = '';
-    $conexao = new PDO($dsn, $usuario, $senha);
+    
 
+    try{
+        $conexao = new PDO($dsn, $usuario, $senha);
+    }catch(PDOException $e) {
+        echo 'Erro: '.$e->getCode().' Mensagem: '.$e->getMessage();
+        //registrar erro
+    }
+
+    
 ?>
